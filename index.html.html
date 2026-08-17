@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>shashwat.archive — index</title>
+<meta name="description" content="instagram / linkedin / spotify / pinterest / email — one index, no algorithm.">
+<meta name="theme-color" content="#0a0a0d">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0d'/%3E%3Crect width='5' height='32' fill='%236d28d9'/%3E%3C/svg%3E">
+
+<!-- Open Graph — replace YOUR-DOMAIN-HERE with your real hosted URL once deployed -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="shashwat.archive">
+<meta property="og:title" content="shashwat.archive">
+<meta property="og:description" content="instagram / linkedin / spotify / pinterest / email — one index, no algorithm.">
+<meta property="og:url" content="https://YOUR-DOMAIN-HERE/">
+<meta property="og:image" content="https://YOUR-DOMAIN-HERE/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="shashwat.archive">
+<meta name="twitter:description" content="instagram / linkedin / spotify / pinterest / email — one index, no algorithm.">
+<meta name="twitter:image" content="https://YOUR-DOMAIN-HERE/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:   #0a0a0d;
+    --panel:  #121016;
+    --bone:   #efece6;
+    --violet: #6d28d9;
+    --lilac:  #b9a4ff;
+    --line:   #2b2733;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ background:var(--void); }
+  html.no-motion .blink{ animation:none !important; opacity:1; }
+  html.no-motion *{ scroll-behavior:auto !important; }
+
+  body{
+    background:var(--void);
+    color:var(--bone);
+    font-family:'JetBrains Mono', ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, 'Roboto Mono', monospace;
+    font-weight:400;
+    line-height:1.4;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  ::selection{ background:var(--violet); color:var(--bone); }
+
+  a{ color:inherit; text-decoration:none; }
+
+  /* ---------- decorative fixed chrome ---------- */
+
+  .accent-bar{
+    position:fixed; top:0; left:0; width:6px; height:100vh;
+    background:var(--violet); z-index:60; pointer-events:none;
+  }
+
+  .grain{
+    position:fixed; inset:0; z-index:55; pointer-events:none;
+    opacity:0.05; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .corner{
+    position:fixed; width:14px; height:14px; z-index:56; pointer-events:none;
+    border-color:var(--line); opacity:0.9;
+  }
+  .corner.tl{ top:14px; left:20px; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+  .corner.tr{ top:14px; right:14px; border-top:1px solid var(--line); border-right:1px solid var(--line); }
+  .corner.bl{ bottom:14px; left:20px; border-bottom:1px solid var(--line); border-left:1px solid var(--line); }
+  .corner.br{ bottom:14px; right:14px; border-bottom:1px solid var(--line); border-right:1px solid var(--line); }
+
+  .hud{
+    position:fixed; top:16px; right:22px; z-index:57; pointer-events:none;
+    text-align:right; font-size:0.65rem; letter-spacing:0.08em;
+    color:var(--lilac); text-transform:uppercase; opacity:0.75;
+  }
+  .hud div{ white-space:nowrap; }
+
+  /* ---------- SHASHWAT.archive visual language ---------- */
+  .hud{
+    border-left:2px solid var(--violet);
+    padding-left:10px;
+    opacity:0.9;
+  }
+
+  .hero{
+    border-bottom:2px solid var(--line);
+  }
+
+  .name{
+    max-width:8ch;
+  }
+
+  .tagline{
+    border-left:2px solid var(--violet);
+    padding-left:14px;
+  }
+
+  .index-head{
+    border-top:2px solid var(--line);
+  }
+
+  .row{
+    border-left:2px solid transparent;
+  }
+
+  .row:hover, .row:focus-visible{
+    border-left-color:var(--bone);
+  }
+
+  .foot{
+    border-bottom:2px solid var(--line);
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:0 clamp(20px, 6vw, 64px);
+  }
+
+  .eyebrow{
+    font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase;
+    color:var(--lilac); margin-bottom:1.2rem;
+  }
+
+  .name{
+    font-size:clamp(3rem, 13vw, 8.5rem);
+    font-weight:800;
+    line-height:0.86;
+    letter-spacing:-0.02em;
+    text-transform:uppercase;
+  }
+
+  .tagline{
+    margin-top:1.6rem;
+    max-width:38ch;
+    font-size:clamp(0.85rem, 1.6vw, 1rem);
+    color:var(--bone);
+    opacity:0.72;
+  }
+
+  .scroll-cue{
+    margin-top:3rem;
+    font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--lilac); opacity:0.8;
+  }
+
+  .blink{ animation:blink 1.1s step-start infinite; }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  /* ---------- index ---------- */
+
+  .index{ position:relative; padding:0 clamp(20px, 6vw, 64px) clamp(4rem, 10vh, 6rem); }
+
+  .index-head{
+    position:sticky; top:0; z-index:40;
+    display:grid;
+    grid-template-columns:56px 1.4fr 1.4fr 40px;
+    gap:12px;
+    background:var(--void);
+    border-bottom:2px solid var(--line);
+    padding:14px 0;
+    font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--lilac); opacity:0.85;
+  }
+
+  .rows{ display:flex; flex-direction:column; }
+
+  .row{
+    display:grid;
+    grid-template-columns:56px 1.4fr 1.4fr 40px;
+    gap:12px;
+    align-items:center;
+    padding:26px 0;
+    border-bottom:2px solid var(--line);
+    background:var(--panel);
+    will-change:transform;
+    transition:background-color 80ms linear, color 80ms linear, border-color 80ms linear;
+  }
+
+  .row:hover, .row:focus-visible{
+    background:var(--violet);
+    border-color:var(--violet);
+    outline:none;
+  }
+  .row:focus-visible{ outline:3px solid var(--lilac); outline-offset:-3px; }
+
+  .col.idx{ font-size:0.85rem; color:var(--lilac); opacity:0.8; }
+  .row:hover .col.idx, .row:focus-visible .col.idx{ color:var(--bone); opacity:1; }
+
+  .col.platform{
+    font-size:clamp(1rem, 2.4vw, 1.4rem);
+    font-weight:700;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+  }
+
+  .col.handle{
+    font-size:0.85rem;
+    opacity:0.65;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .row:hover .col.handle, .row:focus-visible .col.handle{ opacity:0.9; }
+
+  .col.arrow{
+    font-size:1.1rem; text-align:right;
+    transition:transform 120ms ease;
+  }
+  .row:hover .col.arrow, .row:focus-visible .col.arrow{ transform:translateX(5px); }
+
+  /* ---------- footer ---------- */
+
+  .foot{
+    padding:3.2rem clamp(20px, 6vw, 64px) 4rem;
+    border-top:2px solid var(--line);
+    font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--bone); opacity:0.6;
+  }
+  .foot p + p{ margin-top:0.6rem; opacity:0.7; }
+
+
+  /* ---------- stronger brutalist system ---------- */
+
+  body{
+    background:
+      linear-gradient(90deg, transparent 0 49.8%, rgba(185,164,255,0.035) 49.8% 50%, transparent 50%),
+      var(--void);
+  }
+
+  .accent-bar{
+    width:10px;
+  }
+
+  .hero{
+    min-height:92vh;
+    justify-content:flex-end;
+    padding-bottom:clamp(60px, 10vh, 120px);
+    border-bottom:4px solid var(--bone);
+  }
+
+  .eyebrow{
+    display:inline-block;
+    width:max-content;
+    background:var(--violet);
+    color:var(--bone);
+    padding:8px 12px;
+    margin-bottom:24px;
+    font-weight:800;
+    letter-spacing:0.08em;
+  }
+
+  .name{
+    font-size:clamp(4.5rem, 18vw, 13rem);
+    line-height:0.76;
+    letter-spacing:-0.07em;
+    text-shadow:8px 8px 0 var(--violet);
+    max-width:none;
+  }
+
+  .tagline{
+    margin-top:3rem;
+    max-width:32ch;
+    border-left:6px solid var(--violet);
+    padding:12px 0 12px 18px;
+    font-weight:500;
+    background:var(--panel);
+  }
+
+  .scroll-cue{
+    margin-top:2rem;
+    border-top:2px solid var(--line);
+    padding-top:12px;
+  }
+
+  .index{
+    padding-top:0;
+  }
+
+  .index-head{
+    grid-template-columns:72px 1.5fr 1fr 50px;
+    border-top:0;
+    border-bottom:4px solid var(--bone);
+    padding:18px 12px;
+    background:var(--violet);
+    color:var(--bone);
+    opacity:1;
+  }
+
+  .rows{
+    border-left:4px solid var(--bone);
+    border-right:4px solid var(--bone);
+  }
+
+  .row{
+    grid-template-columns:72px 1.5fr 1fr 50px;
+    min-height:110px;
+    padding:24px 12px;
+    border-bottom:4px solid var(--line);
+    border-left:0;
+    background:var(--panel);
+  }
+
+  .row:nth-child(even){
+    background:var(--void);
+  }
+
+  .col.idx{
+    font-size:1rem;
+    font-weight:800;
+    color:var(--lilac);
+  }
+
+  .col.platform{
+    font-size:clamp(1.2rem, 3vw, 2rem);
+    letter-spacing:-0.04em;
+  }
+
+  .col.handle{
+    font-size:0.75rem;
+    text-transform:uppercase;
+  }
+
+  .col.arrow{
+    font-size:1.6rem;
+    font-weight:800;
+  }
+
+  .row:hover,
+  .row:focus-visible{
+    background:var(--violet);
+    border-color:var(--bone);
+    transform:translate(-8px, -4px) !important;
+    box-shadow:12px 12px 0 var(--bone);
+  }
+
+  .hud{
+    border:2px solid var(--lilac);
+    border-left:8px solid var(--violet);
+    padding:10px 12px;
+    background:var(--void);
+    font-weight:800;
+  }
+
+  .foot{
+    border-top:4px solid var(--bone);
+    border-bottom:4px solid var(--bone);
+    padding-top:2.5rem;
+  }
+
+  @media (max-width:640px){
+    .accent-bar{ width:6px; }
+
+    .hero{
+      min-height:88vh;
+      padding-bottom:60px;
+    }
+
+    .name{
+      font-size:clamp(4rem, 23vw, 7rem);
+      text-shadow:5px 5px 0 var(--violet);
+    }
+
+    .index-head,
+    .row{
+      grid-template-columns:40px 1fr 34px;
+    }
+
+    .col.handle{
+      display:none;
+    }
+
+    .rows{
+      border-left:3px solid var(--bone);
+      border-right:3px solid var(--bone);
+    }
+
+    .row:hover,
+    .row:focus-visible{
+      transform:translate(-4px, -3px) !important;
+      box-shadow:6px 6px 0 var(--bone);
+    }
+  }
+
+  /* ---------- responsive ---------- */
+
+  @media (max-width:640px){
+    .index-head, .row{ grid-template-columns:32px 1fr 34px; }
+    .col.handle{ display:none; }
+    .accent-bar{ width:4px; }
+    .corner{ display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .blink{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="accent-bar" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="corner tl" aria-hidden="true"></div>
+  <div class="corner tr" aria-hidden="true"></div>
+  <div class="corner bl" aria-hidden="true"></div>
+  <div class="corner br" aria-hidden="true"></div>
+
+  <div class="hud" aria-hidden="true">
+    <div>ARCHIVE_01</div>
+    <div>SHASHWAT / 2026</div>
+    <div>VOL. <span id="hudScroll">01</span></div>
+  </div>
+
+  <header class="hero">
+    <p class="eyebrow">// thoughts, things &amp; everything in between</p>
+    <h1 class="name" id="heroName">SOCIALS<br>.shash</h1>
+    <p class="tagline" id="heroTagline">somewhere between curiosity and creation</p>
+    <p class="scroll-cue">scroll to expand index <span class="blink">_</span></p>
+  </header>
+
+  <main>
+    <section class="index" aria-label="social links">
+      <div class="index-head">
+        <span>IDX</span><span>Channel</span><span>Handle</span><span>Open</span>
+      </div>
+      <div class="rows" id="rows"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>No algorithm. Just links.</p>
+    <p>// archive / vol. 01 / 2026</p>
+  </footer>
+
+<script>
+(function(){
+
+  /* =========================================================
+     CONFIG — edit this block to make the page yours.
+     platform: label shown in the CHANNEL column
+     handle:   label shown in the HANDLE column
+     url:      where the row links to (use "mailto:you@x.com" for email)
+  ========================================================= */
+  const CONFIG = {
+    siteName: "shashwat.archive",
+    name: ["SHASHWAT", ".archive"],
+    tagline: "somewhere between curiosity and creation",
+    socials: [
+      { platform: "Instagram", handle: "@shashwt999",                  url: "https://www.instagram.com/shashwt999" },
+      { platform: "LinkedIn",  handle: "Shashwat Sood",                url: "https://www.linkedin.com/in/shashwat-sood-9b7a33292" },
+      { platform: "GitHub",    handle: "sikeshashwat",                url: "https://github.com/sikeshashwat" },
+      { platform: "Spotify",   handle: "currently listening",                  url: "https://open.spotify.com/user/31bxfmgty2tfzw4hk5xk3fzkdkgu" },
+      { platform: "Pinterest", handle: "things I keep",                        url: "https://pin.it/6wDDZjNVI" },
+      { platform: "Email",     handle: "say hello",   url: "mailto:soodshashwat2006@gmail.com" }
+    ]
+  };
+
+  /* ---------- apply config to hero ---------- */
+  document.getElementById('heroName').innerHTML = CONFIG.name.join('<br>');
+  document.getElementById('heroTagline').textContent = CONFIG.tagline;
+  document.title = CONFIG.siteName + ' — index';
+
+  /* ---------- build rows ---------- */
+  const rowsEl = document.getElementById('rows');
+  const rowState = [];
+
+  CONFIG.socials.forEach((s, i) => {
+    const a = document.createElement('a');
+    a.className = 'row';
+    a.href = s.url;
+    if (s.url.indexOf('mailto:') !== 0) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    }
+    a.setAttribute('data-i', i);
+    a.innerHTML =
+      '<span class="col idx">' + String(i + 1).padStart(2, '0') + '</span>' +
+      '<span class="col platform">' + s.platform + '</span>' +
+      '<span class="col handle">' + s.handle + '</span>' +
+      '<span class="col arrow">&#8594;</span>';
+    rowsEl.appendChild(a);
+
+    rowState.push({
+      el: a,
+      frozen: false,
+      phase: Math.random() * Math.PI * 2,
+      freqX: 0.6 + Math.random() * 1.1,
+      freqY: 0.6 + Math.random() * 1.1,
+      dir: Math.random() > 0.5 ? 1 : -1,
+      ampX: 16 + Math.random() * 22,
+      ampY: 6 + Math.random() * 12,
+      ampR: 1.2 + Math.random() * 2.6
+    });
+
+    a.addEventListener('mouseenter', () => { rowState[i].frozen = true; a.style.transform = 'none'; });
+    a.addEventListener('mouseleave', () => { rowState[i].frozen = false; });
+    a.addEventListener('focus', () => { rowState[i].frozen = true; a.style.transform = 'none'; });
+    a.addEventListener('blur', () => { rowState[i].frozen = false; });
+  });
+
+  /* ---------- archive label ---------- */
+  /* The HUD is intentionally static: minimal information, strong structure. */
+
+  /* ---------- scroll-driven ambient motion ---------- */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) document.documentElement.classList.add('no-motion');
+
+  const hudScroll = document.getElementById('hudScroll');
+  let ampScale = window.innerWidth < 640 ? 0.4 : 1;
+  window.addEventListener('resize', () => {
+    ampScale = window.innerWidth < 640 ? 0.4 : 1;
+  }, { passive: true });
+
+  let ticking = false;
+
+  function updateScroll(){
+    const s = window.scrollY;
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    hudScroll.textContent = '01';
+
+    if (!reduceMotion) {
+      rowState.forEach(st => {
+        if (st.frozen) return;
+        const x = Math.sin(s / 220 * st.freqX + st.phase) * st.ampX * st.dir * ampScale;
+        const y = Math.cos(s / 260 * st.freqY + st.phase) * st.ampY * ampScale;
+        const r = Math.sin(s / 300 * st.freqX + st.phase) * st.ampR * ampScale;
+        st.el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) rotate(' + r.toFixed(2) + 'deg)';
+      });
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(updateScroll); ticking = true; }
+  }, { passive: true });
+
+  updateScroll();
+
+})();
+</script>
+</body>
+</html>
